@@ -21,6 +21,7 @@ const newUser = require('./routes/newUsers');
 const postBooks = require('./routes/postBooks');
 const returnBooks = require('./routes/returnBooks');
 const deleteBooks = require('./routes/deleteBooks');
+const takeOutBooks = require('./routes/takeOutBooks');
 
 // cors
 app.use(function(req, res, next) {
@@ -47,6 +48,7 @@ app.get('/', (req, res, next) => {
             getAllbooks: "/api/v1/books",
             getAllAuthors: "/api/v1/authors",
             postNewBooks: "/api/v1/books",
+            takeOutBooks: "/api/v1/books/borrow/:book_id/:user_id",
             returnBooks: "/api/v1/books/:_id",
             deleteBooks: "/api/v1/books/:_id"
         }
@@ -60,6 +62,7 @@ app.use('/api/v1/books', getBooks);
 app.use('/api/v1/authors', getAllAuthors);
 app.use('/api/v1/books', postBooks);
 app.use('/api/v1/books', returnBooks);
+app.use('/api/v1/books', takeOutBooks);
 app.use('/api/v1/books', deleteBooks);
 
 const port = process.env.PORT || 3000;
