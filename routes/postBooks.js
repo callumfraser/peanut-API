@@ -14,7 +14,8 @@ router.post('/', (req, res) => {
             bookName: newBook.bookName,
             author: newBook.author,
             genre: newBook.genre,
-            about: newBook.about
+            about: newBook.about,
+            image: newBook.image
         })
         .then((book) => {
             res.json({
