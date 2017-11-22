@@ -10,7 +10,7 @@ router.put('/borrow/:book_id/:user_id', (req, res) => {
     var userId = req.params.user_id;
 
     bookModel.findOneAndUpdate({
-      "id":bookId
+      "_id":bookId
     }, {
      $inc : {
        timesTaken : 1
