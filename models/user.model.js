@@ -9,7 +9,10 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    booksRead: []
+    booksRead: {
+      type: [String],
+      default: []
+    }
 });
 
 const userModel = mongoose.model('Users', UserSchema);
