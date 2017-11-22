@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.put('/borrow/:book_id/:user_id', (req, res) => {
     let code = res.statusCode;
-    var bookBorrowed = req.body;
     var bookId = req.params.book_id;
     var userId = req.params.user_id;
 
@@ -17,7 +16,7 @@ router.put('/borrow/:book_id/:user_id', (req, res) => {
        timesTaken : 1
      },
      availability: false,
-     currentUser : "None"
+     currentUser : userId
    }, {
      upsert : false
    }, function(err,result){
