@@ -12,6 +12,6 @@ const UserSchema = mongoose.Schema({
     booksRead: []
 });
 
-const usersModel = mongoose.model('Users', UserSchema);
+const userModel = mongoose.model('Users', UserSchema);
 
-module.exports = usersModel;
+module.exports = userModel;

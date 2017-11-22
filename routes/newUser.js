@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 
-router.post('/newUser', (req, res) => {
+router.post('/newuser', (req, res) => {
     let newUser = req.body;
     let code = res.statusCode;
 
