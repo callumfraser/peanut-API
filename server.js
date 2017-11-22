@@ -50,7 +50,7 @@ app.get('/', (req, res, next) => {
             getAllAuthors: "/api/v1/authors",
             postNewBooks: "/api/v1/books",
             takeOutBooks: "/api/v1/books/borrow/:book_id/:user_id",
-            returnBooks: "/api/v1/books/:_id/:recommended",
+            returnBooks: "/api/v1/books/return/:book_id/:recommended",
             deleteBooks: "/api/v1/books/:_id",
             newUser: "/api/v1/register/",
             findUsers: "/api/v1/users"

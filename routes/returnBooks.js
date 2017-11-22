@@ -4,10 +4,10 @@ const express = require('express');
 const router = express.Router();
 
 
-router.put('/:_id/:recommended', (req, res) => {
+router.put('return/:book_id/:recommended', (req, res) => {
     let code = res.statusCode;
     var recommendedOrNot = req.params.recommended;
-    var bookId = req.params._id;
+    var bookId = req.params.book_id;
     var recommendationCheck = 0;
 
     if (recommendedOrNot == 'true'){
