@@ -4,13 +4,13 @@ const express = require('express');
 const router = express.Router();
 
 
-router.put('/:_id', (req, res) => {
+router.put('/:_id/:recommended', (req, res) => {
     let code = res.statusCode;
-    var bookReturned = req.body;
-    var bookId = req.params.id;
+    var recommendedOrNot = req.params.recommended;
+    var bookId = req.params._id;
     var recommendationCheck = 0;
 
-    if (bookReturned.recommendation == true){
+    if (recommendedOrNot == 'true'){
       recommendationCheck = 1;
     }
 
@@ -19,7 +19,7 @@ router.put('/:_id', (req, res) => {
     console.log(bookReturned);
 
     bookModel.findOneAndUpdate({
-      "_id":bookId
+      "_id": bookId
     }, {
      $inc : {
        recommendations : (0 + recommendationCheck)
