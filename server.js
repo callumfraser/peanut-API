@@ -17,7 +17,7 @@ mongoose.Promise = global.Promise;
 // module routes
 const getBooks = require('./routes/getBooks');
 const getAllAuthors = require('./routes/getAuthors');
-const newUser = require('./routes/newUsers');
+const newUser = require('./routes/newUser');
 const findUsers = require('./routes/getUsers')
 const postBooks = require('./routes/postBooks');
 const returnBooks = require('./routes/returnBooks');
@@ -52,7 +52,7 @@ app.get('/', (req, res, next) => {
             takeOutBooks: "/api/v1/books/borrow/:book_id/:user_id",
             returnBooks: "/api/v1/books/:_id",
             deleteBooks: "/api/v1/books/:_id",
-            newUser: "/api/v1/books/newuser",
+            newUser: "/api/v1/register/",
             findUsers: "/api/v1/books/users"
         }
     });
@@ -62,7 +62,7 @@ app.get('/what', function(req,res){
 })
 // routes
 app.use('/api/v1/books', getBooks);
-app.use('/api/v1/books/newuser', newUser);
+app.use('/api/v1/register', newUser);
 app.use('/api/v1/books/users', findUsers);
 app.use('/api/v1/authors', getAllAuthors);
 app.use('/api/v1/books', postBooks);
