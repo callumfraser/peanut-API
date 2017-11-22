@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
                             author: newBook.author
                         }, {
                             $push: {
-                                books: [newBook.bookName]
+                                books: newBook.bookName
                             }
                         })
                         .then( (book) => {
