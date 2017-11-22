@@ -52,7 +52,9 @@ app.get('/', (req, res, next) => {
         }
     });
 });
-
+app.get('/what', function(req,res){
+  res.send("hi");
+})
 // routes
 app.use('/api/v1/books', getBooks);
 app.use('/api/v1/authors', getAllAuthors);
