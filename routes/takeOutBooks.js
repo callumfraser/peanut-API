@@ -18,7 +18,7 @@ router.put('/borrow/:book_id/:user_id', (req, res) => {
      availability: false,
      currentUser : userId
    }, {
-     upsert : false
+     upsert : true
    }, function(err,result){
      if (err){
        return res.json({
