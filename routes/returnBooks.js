@@ -19,7 +19,7 @@ router.put('/:_id', (req, res) => {
     console.log(bookReturned);
 
     bookModel.findOneAndUpdate({
-      "id":bookId
+      "_id":bookId
     }, {
      $inc : {
        recommendations : (0 + recommendationCheck)
