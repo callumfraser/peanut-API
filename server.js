@@ -53,7 +53,7 @@ app.get('/', (req, res, next) => {
             returnBooks: "/api/v1/books/:_id",
             deleteBooks: "/api/v1/books/:_id",
             newUser: "/api/v1/register/",
-            findUsers: "/api/v1/books/users"
+            findUsers: "/api/v1/users"
         }
     });
 });
@@ -63,7 +63,7 @@ app.get('/what', function(req,res){
 // routes
 app.use('/api/v1/books', getBooks);
 app.use('/api/v1/register', newUser);
-app.use('/api/v1/books/users', findUsers);
+app.use('/api/v1/users', findUsers);
 app.use('/api/v1/authors', getAllAuthors);
 app.use('/api/v1/books', postBooks);
 app.use('/api/v1/books', returnBooks);

@@ -3,7 +3,7 @@ const userModel = require('../models/user.model');
 const express = require('express');
 const router = express.Router();
 
-router.get('/users', (req, res) => {
+router.get('/', (req, res) => {
     let code = res.statusCode;
     userModel.find({})
         .then((users) => {
