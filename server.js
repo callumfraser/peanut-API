@@ -50,7 +50,8 @@ app.get('/', (req, res, next) => {
             postNewBooks: "/api/v1/books",
             takeOutBooks: "/api/v1/books/borrow/:book_id/:user_id",
             returnBooks: "/api/v1/books/:_id",
-            deleteBooks: "/api/v1/books/:_id"
+            deleteBooks: "/api/v1/books/:_id",
+            newUser: "/api/v1/books/newuser"
         }
     });
 });
@@ -59,6 +60,7 @@ app.get('/what', function(req,res){
 })
 // routes
 app.use('/api/v1/books', getBooks);
+app.use('/api/v1/books/newuser', newUser);
 app.use('/api/v1/authors', getAllAuthors);
 app.use('/api/v1/books', postBooks);
 app.use('/api/v1/books', returnBooks);
