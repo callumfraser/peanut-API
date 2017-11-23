@@ -1,0 +1,142 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+
+<center class="">
+
+    <!-- this is the return a book button -->
+    <p class="container">
+        <a class="btn btn-info col-sm-3" data-toggle="collapse" href="#returnBook" aria-expanded="false" aria-controls="collapseExample">
+            return books
+        </a>
+
+        <!-- //this is for loaning a new book -->
+        <button class="btn btn-info col-sm-3" type="button" data-toggle="collapse" data-target="#loanBook" aria-expanded="false" aria-controls="collapseExample">
+            loan new book
+        </button>
+
+        <!-- add member -->
+        <button class="btn btn-info col-sm-3" type="button" data-toggle="collapse" data-target="#addMember" aria-expanded="false" aria-controls="collapseExample">
+            add new member
+        </button>
+    </p>
+</center>
+
+<!-- this is the pop up of the returning books button -->
+<div class="collapse" id="returnBook">
+    <div class="card card-body">
+        <br>
+        <label for="userId" class="form-label"><h4>Member Id :</h4></label>
+        <input class="form-control col-md-4 memberReturnId" id="userId" type="text" name="" value="" placeholder="search">
+        <br>
+        <input class="btn btn-primary col-sm-2 " type="button" name="button" value="Search" data-bind="click: searchMember">
+        <br><br>
+    </div>
+    <center>
+        <div class="container">
+            <div class="container">
+                <div class="row" data-bind="foreach: outstandingBooksArr, visible: outstandingBooksArr().length > 0">
+                    <div class="card cardBooks" style="width: 20rem; margin: 10px;">
+                        <img class="card-img-top jumbotron" height="300" width="100" data-bind="attr: {src: image}" alt="Card image cap">
+                        <p data-bind="text: author"></p>
+                        <div class="card-body">
+                            <h4 class="card-title" data-bind="text: title"></h4>
+                            <strong class="badge badge-dark">
+                                <i data-bind="text: genre"></i>
+                            </strong>
+                            <hr>
+                            <!-- <p data-bind="text: _id"></p> -->
+                            <p class="card-text" data-bind="text: about"></p>
+                            <div class="rows">
+                                <button data-bind="click: $parent.returnBook, attr: {id: _id}" type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    Return
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="invisible">
+            </div>
+        </div>
+    </center>
+</div>
+<!-- this is the exampler -->
+<div class="collapse" id="loanBook">
+    <div class="card card-body">
+        <br>
+        <label for="userId" class="form-label"><h4>Loaner Id :</h4></label>
+        <input data-bind=""class="form-control col-md-4" id="loanerId" type="text" name="" value="" placeholder="loaner id">
+        <br>
+        <button data-bind="click: searchToLoan"class="btn btn-primary col-sm-2 " type="button" name="button">search</button>
+        <br><br>
+
+    </div>
+    <center>
+        <div class="container">
+            <div class="row" data-bind="foreach: searchBooks">
+                <div class="card cardBooks" style="width: 20rem; margin: 10px;">
+                    <img class="card-img-top jumbotron" height="300" width="100" data-bind="attr: {src: image}" alt="Card image cap">
+                    <p data-bind="text: author"></p>
+                    <div class="card-body">
+                        <h4 class="card-title" data-bind="text: title"></h4>
+                        <strong class="badge badge-dark">
+                            <i data-bind="text: genre"></i>
+                        </strong>
+                        <hr>
+                        <p class="card-text" data-bind="text: about"></p>
+                        <input type="submit" data-bind="click: $parent.loanBook, attr: {id: _id}" value="Loan book" class="btn btn-primary">
+                    </div>
+                </div>
+            </div>
+            <hr class="invisible">
+        </div>
+    </center>
+</div>
+<!-- add member -->
+<form data-bind="submit: addMember">
+    <div class="collapse" id="addMember">
+        <div class="card card-body">
+            <br>
+            <label for="userId" class="form-label"><h4>create a new member Id:</h4></label>
+            <input data-bind="" class="form-control col-md-4 firstName" id="userId"  type="text" name="" value="" placeholder="member name">
+            <br>
+            <input data-bind="" class="form-control col-md-4 lastName" id="userId" type="text" name="" value="" placeholder="member surname">
+            <div class="">
+                <!-- <p>this is the member </p> -->
+            </div>
+            <br>
+            <input class="btn btn-primary col-sm-2 " type="submit" name="button" value="submit"/>
+            <br><br>
+
+        </div>
+    </div>
+</form>
+<!-- recommended button -->
+
+<div class="container">
+    <div class="container oj-hybrid-padding ">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Your Opinion Matters</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                    </div>
+                    <div class="modal-body">
+                        Would you recommend this book
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-secondary recom" data-bind = "click: dontRecommend" value="No">
+                        <input type="button" class="btn btn-primary recom" data-bind = "click: recommend" value="Yes">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

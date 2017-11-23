@@ -1,0 +1,27 @@
+/*
+    Document   : override
+    Created on : <date>
+    Author     : <author>
+    Description:
+        This is where any of your application specific styles should be included
+*/
+
+.cardBooks {
+    animation: fade 2s;
+}
+
+@keyframes run-in {
+    from {
+        margin-bottom: -50px;
+    }
+}
+
+.add-btn {
+    animation: fade 3s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0
+    }
+}

@@ -22,6 +22,7 @@ const postBooks = require('./routes/postBooks');
 const returnBooks = require('./routes/returnBooks');
 const deleteBooks = require('./routes/deleteBooks');
 
+
 // cors
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -32,7 +33,8 @@ app.use(function(req, res, next) {
 })
 
 // express middleware
-app.use(express.static('./public'));
+app.use(express.static('peanuts_book_app/web'));
+//app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger('dev'));

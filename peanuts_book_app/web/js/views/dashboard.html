@@ -1,0 +1,75 @@
+
+<center class="oj-hybrid-padding">
+  <div class="oj-hybrid-padding">
+    <div class="">
+      <!-- WITH WEB CCA COMPONENT -->
+      <!-- <filter-table tableid="it ems" filter="" data={{itemData}} onrowclick="{{handleRowClick}}"></filter-table> -->
+      <input class="form-control col-md-3" type="text" data-bind="value: query" placeholder="filter..." />
+      <br>
+      <div class="container">
+          <div class="row" data-bind="foreach: searchBooks">
+            <div class="card cardBooks" style="width: 20rem; margin: 10px;">
+            <img class="card-img-top jumbotron" height="300" width="100" data-bind="attr: {src: image}" alt="Card image cap">
+            <p data-bind="text: author"></p>
+                <div class="card-body">
+                    <h4 class="card-title" data-bind="text: title"></h4>
+                    <strong class="badge badge-dark">
+                        <i data-bind="text: genre"></i>
+                    </strong>
+                    <br>
+                     Recommendations : <strong><small data-bind="text: recommendations"></small></strong>
+                    <hr>
+                    <p class="card-text" data-bind="text: about"></p>
+                    <!-- <a href="#" class="btn btn-primary btn-block">Go somewhere</a> -->
+                </div>
+            </div>
+          </div>
+          <hr class="invisible">
+      </div>
+    </div>
+  </div>
+</center>
+
+<div class="add-btn fixed-bottom">
+    <input type="button" value="+" class="btn btn-primary float-right fa fa-plus fa-lg" style="margin: 50px; border-radius: 100px; font-weight: bolder; font-size: 50px; opacity: 0.8" data-toggle="modal" data-target="#exampleModal">
+</div>
+
+<!-- new book modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New book</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form data-bind="submit: addBook">
+                    <div class="form-group">
+                        <input type="text" name="author" id="" class="author form-control" data-bind="" placeholder="Author" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="" id="" class="book form-control" data-bind="" placeholder="Book name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="" id="" class="genre form-control" data-bind="" placeholder="Genre" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="" id="" class="date form-control" data-bind="" placeholder="Year written" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea type="text" name="" id="" class="about form-control" data-bind="" placeholder="About the book" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="" id="" class="img form-control" data-bind="" placeholder="paste book image url" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add book</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
