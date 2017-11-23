@@ -17,10 +17,13 @@ mongoose.Promise = global.Promise;
 // module routes
 const getBooks = require('./routes/getBooks');
 const getAllAuthors = require('./routes/getAuthors');
-const newUser = require('./routes/newUsers');
+const newUser = require('./routes/newUser');
+const findUsers = require('./routes/getUsers')
 const postBooks = require('./routes/postBooks');
 const returnBooks = require('./routes/returnBooks');
 const deleteBooks = require('./routes/deleteBooks');
+const takeOutBooks = require('./routes/takeOutBooks');
+const booksInUse = require('./routes/booksInUse');
 
 
 // cors
@@ -49,8 +52,12 @@ app.get('/', (req, res, next) => {
             getAllbooks: "/api/v1/books",
             getAllAuthors: "/api/v1/authors",
             postNewBooks: "/api/v1/books",
-            returnBooks: "/api/v1/books/:_id",
-            deleteBooks: "/api/v1/books/:_id"
+            takeOutBooks: "/api/v1/books/borrow/:book_id/:user_id",
+            returnBooks: "/api/v1/books/return/:book_id/:recommended",
+            deleteBooks: "/api/v1/books/:_id",
+            newUser: "/api/v1/register/",
+            findUsers: "/api/v1/users",
+            booksInUse: "/api/v1/books/userBooks/:user_id"
         }
     });
 });
@@ -59,10 +66,14 @@ app.get('/what', function(req,res){
 })
 // routes
 app.use('/api/v1/books', getBooks);
+app.use('/api/v1/register', newUser);
+app.use('/api/v1/users', findUsers);
 app.use('/api/v1/authors', getAllAuthors);
 app.use('/api/v1/books', postBooks);
 app.use('/api/v1/books', returnBooks);
+app.use('/api/v1/books', takeOutBooks);
 app.use('/api/v1/books', deleteBooks);
+app.use('/api/v1/books', booksInUse);
 
 const port = process.env.PORT || 3000;
 

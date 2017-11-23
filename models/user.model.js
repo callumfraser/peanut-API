@@ -9,9 +9,12 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    booksRead: []
+    booksRead: {
+      type: [String],
+      default: []
+    }
 });
 
-const usersModel = mongoose.model('Users', UserSchema);
+const userModel = mongoose.model('Users', UserSchema);
 
-module.exports = usersModel;
+module.exports = userModel;
